@@ -1,6 +1,7 @@
 """OpenClaw 安装配置工具 - GUI 模块"""
 
 import os
+import sys
 import signal
 import subprocess
 import threading
@@ -213,7 +214,9 @@ class OpenClawApp:
         title_frame = ttk.Frame(main)
         title_frame.pack(fill=tk.X, pady=(0, 20))
         
-        logo_path = os.path.join(os.path.dirname(__file__), "assets", "xuedingmao_logo.png")
+        # 兼容 PyInstaller 的打包路径
+        base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+        logo_path = os.path.join(base_path, "assets", "xuedingmao_logo.png")
         if os.path.exists(logo_path):
             try:
                 self._logo_orig = tk.PhotoImage(file=logo_path)
