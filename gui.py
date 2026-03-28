@@ -307,7 +307,7 @@ class OpenClawApp:
         url_row.pack(fill=tk.X, pady=(0, 10))
         ttk.Label(url_row, text="API Base URL:").pack(side=tk.LEFT)
         self.base_url_var = tk.StringVar(value=installer.BASE_URL)
-        ttk.Entry(url_row, textvariable=self.base_url_var, state="readonly").pack(side=tk.LEFT, padx=(10, 5), fill=tk.X, expand=True)
+        ttk.Label(url_row, textvariable=self.base_url_var, foreground="#D4AF37", font=("Microsoft YaHei UI", 10, "bold")).pack(side=tk.LEFT, padx=(10, 5))
 
         key_grid = ttk.Frame(config_frame)
         key_grid.pack(fill=tk.X)
