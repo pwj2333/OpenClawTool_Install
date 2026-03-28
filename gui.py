@@ -234,7 +234,11 @@ class OpenClawApp:
 
         self.title_lbl = ttk.Label(text_frame, text="薛定猫openclaw一键配置工具", style="Title.TLabel")
         self.title_lbl.pack(anchor=tk.W, pady=(5, 4))
-        ttk.Label(text_frame, text="GUI Setup & Configuration Tool - xuedingmao.top", style="Subtitle.TLabel").pack(anchor=tk.W)
+        
+        subtitle_frame = ttk.Frame(text_frame)
+        subtitle_frame.pack(anchor=tk.W)
+        ttk.Label(subtitle_frame, text="GUI Setup & Configuration Tool - ", style="Subtitle.TLabel").pack(side=tk.LEFT)
+        ttk.Label(subtitle_frame, text="https://xuedingmao.top", foreground="#D4AF37", background=BG, font=("Microsoft YaHei UI", 10, "bold", "underline")).pack(side=tk.LEFT)
 
         # ── 环境检测 ──
         env_frame = ttk.LabelFrame(main, text="  环境检测  ", style="Section.TLabelframe", padding=12)
@@ -303,10 +307,7 @@ class OpenClawApp:
         url_row.pack(fill=tk.X, pady=(0, 10))
         ttk.Label(url_row, text="API Base URL:").pack(side=tk.LEFT)
         self.base_url_var = tk.StringVar(value=installer.BASE_URL)
-        ttk.Entry(url_row, textvariable=self.base_url_var).pack(side=tk.LEFT, padx=(10, 5), fill=tk.X, expand=True)
-        ttk.Button(url_row, text="恢复默认",
-               command=lambda: self.base_url_var.set(installer.BASE_URL),
-               style="Small.TButton", cursor="hand2").pack(side=tk.LEFT)
+        ttk.Entry(url_row, textvariable=self.base_url_var, state="readonly").pack(side=tk.LEFT, padx=(10, 5), fill=tk.X, expand=True)
 
         key_grid = ttk.Frame(config_frame)
         key_grid.pack(fill=tk.X)
