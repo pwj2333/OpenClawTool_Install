@@ -9,11 +9,11 @@ curl -fsSL https://raw.githubusercontent.com/xuedingmao/openclawInstallTools/mai
 ```
 
 ## 视频教程
-👉 [点击观看 Bilibili 视频教程](https://www.bilibili.com/video/BV1RwcXzREwR)
+
 
 ## 软件截图
 
-![软件截图](assets/截图.png)
+
 
 ## 功能特性
 
@@ -99,13 +99,6 @@ openclawInstallTools/
 └── README.md        # 本文件
 ```
 
-## 捐赠支持
-
-如果这个工具对你有帮助，欢迎请作者喝杯咖啡 ☕
-
-| 支付宝 | 微信 |
-|:---:|:---:|
-| <img src="assets/支付宝捐赠.jpg" width="200"> | <img src="assets/微信捐赠.jpg" width="200"> |
 
 ## 参考文档
 
