@@ -11,21 +11,27 @@ jobs:
     
     steps:
     - name: 检出代码
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: 安装加密编译工具 (shc) 和 gcc
       run: |
+        set -euxo pipefail
         sudo apt-get update
         sudo apt-get install -y shc gcc dos2unix
 
     - name: 使用 shc 编译 shell 脚本
       run: |
+        set -euxo pipefail
         # 将 Windows 换行符(CRLF) 转换为 Linux 换行符(LF)，防止 shc 编译报错
-        dos2unix install.sh
-        # 编译 install.sh 文件
-        shc -f install.sh
-        # shc 默认会生成 install.sh.x 可执行文件。我们把它重命名为最终产物名字
-        mv install.sh.x openclaw_installer_linux
+        cp install.sh install.build.sh
+        dos2unix install.build.sh
+        # shc 对 /usr/bin/env bash 兼容性不稳定，构建时统一替换为 /bin/bash
+        sed -i '1s|^#!.*|#!/bin/bash|' install.build.sh
+        chmod +x install.build.sh
+        # 编译脚本并输出详细日志
+        shc -v -f install.build.sh -o openclaw_installer_linux
+        test -f openclaw_installer_linux
+        chmod +x openclaw_installer_linux
 
     - name: 上传打包好的可执行文件
       uses: actions/upload-artifact@v4
