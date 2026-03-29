@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - name: 检出代码
@@ -23,9 +23,7 @@ jobs:
         # 将 Windows 换行符(CRLF) 转换为 Linux 换行符(LF)，防止 shc 编译报错
         dos2unix install.sh
         # 编译 install.sh 文件
-        shc -f install.sh
-        # shc 默认会生成 install.sh.x 可执行文件。我们把它重命名为对客户友好的名字
-        mv install.sh.x openclaw_installer_linux
+        shc -f install.sh -o openclaw_installer_linux
 
     - name: 上传打包好的可执行文件
       uses: actions/upload-artifact@v4
