@@ -1,0 +1,33 @@
+name: Build Linux Executable
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # 允许在 GitHub 网页上通过按钮手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+
+    - name: 安装加密编译工具 (shc) 和 gcc
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y shc gcc
+
+    - name: 使用 shc 编译 shell 脚本
+      run: |
+        # 编译 install.sh 文件
+        shc -f install.sh
+        # shc 默认会生成 install.sh.x 可执行文件。我们把它重命名为对客户友好的名字
+        mv install.sh.x openclaw_installer_linux
+
+    - name: 上传打包好的可执行文件
+      uses: actions/upload-artifact@v4
+      with:
+        name: openclaw_installer_linux
+        path: openclaw_installer_linux
+        retention-days: 7 # 自动保留 7 天
