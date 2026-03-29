@@ -5,14 +5,14 @@
 ## Linux 一键安装
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/xuedingmao/openclawInstallTools/main/install.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/xuedingmao/openclawInstallTools/main/install.sh)"
 ```
 
 ## 视频教程
-
+- [OpenClaw 配置教程](https://www.bilibili.com/video/BV1a3XUB9EZL)
 
 ## 软件截图
-
+![alt text](image.png)
 
 
 ## 功能特性

@@ -722,17 +722,18 @@ start_dashboard() {
 
 show_menu() {
     echo ""
-    echo -e "${CYAN}${BOLD}🐾 OpenClaw Linux 安装配置工具${NC}"
+    echo -e "${CYAN}${BOLD}🐾 薛定猫 OpenClaw Linux 一键配置工具${NC}"
     echo ""
-    echo "  1) 环境检测"
-    echo "  2) 安装 OpenClaw"
-    echo "  3) 安装 uv"
-    echo "  4) 配置 API 密钥与模型"
-    echo "  5) 启动 Gateway"
-    echo "  6) 启动 Dashboard"
+    echo "  1) 一键安装 (安装核心组件+配置)"
+    echo "  2) 环境检测"
+    echo "  3) 安装 OpenClaw"
+    echo "  4) 安装 uv"
+    echo "  5) 配置 API 密钥与模型"
+    echo "  6) 启动 Gateway"
+    echo "  7) 启动 Dashboard"
     separator
-    echo "  7) 卸载 OpenClaw"
-    echo "  8) 卸载 uv"
+    echo "  8) 卸载 OpenClaw"
+    echo "  9) 卸载 uv"
     separator
     echo "  0) 退出"
     echo ""
@@ -841,16 +842,17 @@ main() {
     # 交互式菜单循环
     while true; do
         show_menu
-        read -rp "请选择操作 [0-8]: " choice
+        read -rp "请选择操作 [0-9]: " choice
         case "$choice" in
-            1) check_environment ;;
-            2) install_openclaw ;;
-            3) install_uv ;;
-            4) configure_api ;;
-            5) start_gateway ;;
-            6) start_dashboard ;;
-            7) uninstall_openclaw ;;
-            8) uninstall_uv ;;
+            1) quick_install ;;
+            2) check_environment ;;
+            3) install_openclaw ;;
+            4) install_uv ;;
+            5) configure_api ;;
+            6) start_gateway ;;
+            7) start_dashboard ;;
+            8) uninstall_openclaw ;;
+            9) uninstall_uv ;;
             0)
                 echo ""
                 info "再见！👋"
