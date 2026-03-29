@@ -5,15 +5,15 @@
 ## Linux 一键安装
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/xuedingmao/openclawInstallTools/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/pwj2333/OpenClawTool_Install/main/install.sh)"
 ```
 
 ## 视频教程
 - [OpenClaw 配置教程](https://www.bilibili.com/video/BV1a3XUB9EZL)
 
 ## 软件截图
-![alt text](image.png)
 
+![软件截图](assets/%E8%BD%AF%E4%BB%B6%E6%88%AA%E5%9B%BE.png)
 
 ## 功能特性
 
@@ -99,6 +99,14 @@ openclawInstallTools/
 └── README.md        # 本文件
 ```
 
+## 技术支持
+
+如果觉得好用，想支持一下薛定猫，可以请我喝杯咖啡 ☕~
+
+<p align="left">
+  <img src="assets/%E5%BE%AE%E4%BF%A1.png" width="250" alt="微信赞赏" style="margin-right: 20px;"/>
+  <img src="assets/%E6%94%AF%E4%BB%98%E5%AE%9D.png" width="250" alt="支付宝赞赏" />
+</p>
 
 ## 参考文档
 
